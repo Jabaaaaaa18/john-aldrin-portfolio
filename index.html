@@ -54,23 +54,32 @@ section{padding:96px 0;border-top:1px solid var(--line);position:relative}
 h2{font:700 clamp(30px,4.6vw,54px)/1.1 var(--hd);margin:0 0 40px;letter-spacing:.01em;text-transform:uppercase}
 .about{display:grid;grid-template-columns:1fr 1fr;gap:56px}
 .about p{margin:0 0 18px;max-width:52ch;color:#c4d0e6}
-.resume-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:start;padding:28px;margin:0 0 42px;background:var(--panel);border:1px solid var(--line)}
-.resume-name{margin:0 0 12px;color:var(--cyan);font:500 13px var(--mono);letter-spacing:.14em;text-transform:uppercase}
-.resume-summary{max-width:70ch;margin:0 0 18px;color:#c4d0e6}
-.resume-contact{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--mute);font:400 12px var(--mono)}
-.resume-contact a{color:var(--cyan);text-decoration:none}
+.resume-sheet{position:relative;max-width:1000px;margin:0 auto;padding:50px 56px;background:#fff;color:#102f3c;border:10px solid #082d3b;box-shadow:inset 0 0 0 5px #f3b744,0 20px 70px rgba(0,0,0,.38)}
+.resume-sheet::before,.resume-sheet::after{content:"";position:absolute;left:24%;right:24%;height:10px;background:#f3b744}
+.resume-sheet::before{top:-10px}.resume-sheet::after{bottom:-10px}
+.resume-banner{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 0 30px;text-align:center}
+.resume-banner span{width:72px;height:4px;background:#f3b744}
+#resume h2{margin:0;color:#082d3b;font:700 29px/1.1 var(--hd);letter-spacing:.04em;text-shadow:none}
+.resume-top{display:block;padding:0 0 24px;margin:0 0 30px;text-align:center;background:transparent;border:0;border-bottom:3px solid #082d3b}
+.resume-name{margin:0 0 12px;color:#082d3b;font:900 36px/1.1 var(--hd);letter-spacing:.02em;text-transform:uppercase}
+.resume-summary{max-width:72ch;margin:0 auto 18px;color:#243b45}
+.resume-contact{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;color:#405761;font:400 12px var(--mono)}
+.resume-contact a{color:#082d3b;text-decoration:underline;text-decoration-color:#f3b744;text-underline-offset:3px}
+.resume-top .btn{margin-top:22px;background:#fff;border:1px solid #082d3b;color:#082d3b;clip-path:none;box-shadow:none}
+.resume-top .btn:hover{background:#f3b744;color:#082d3b;box-shadow:none}
 .resume-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px}
-.resume-entry{margin:0 0 36px;padding:0 0 30px;border-bottom:1px solid var(--line)}
+.resume-entry{margin:0 0 36px;padding:0 0 30px;border-bottom:1px solid #b8c5c8}
 .resume-entry:last-child{margin-bottom:0}
-.resume-label{margin:0 0 16px;color:var(--pink);font:500 12px var(--mono);letter-spacing:.16em;text-transform:uppercase}
-.resume-entry h3{margin:0 0 8px;font:700 21px/1.3 var(--hd)}
-.resume-meta{margin:0 0 16px;color:var(--mute);font:400 13px var(--mono)}
-.resume-list{margin:0;padding-left:20px;color:#c4d0e6}
+.resume-label{margin:0 0 16px;color:#a96e0c;font:700 12px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.resume-entry h3{margin:0 0 8px;color:#082d3b;font:700 19px/1.3 var(--sans)}
+.resume-meta{margin:0 0 16px;color:#405761;font:400 13px var(--mono)}
+.resume-list{margin:0;padding-left:20px;color:#243b45}
 .resume-list li+li{margin-top:8px}
 .resume-skills{display:grid;gap:26px}
-.resume-skills h4{margin:0 0 12px;font:600 16px/1.3 var(--sans);color:var(--text)}
-.resume-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.resume-tags li{padding:6px 10px;border:1px solid var(--line);font:400 12px var(--mono);color:var(--cyan)}
+.resume-skills h4{margin:0 0 12px;font:700 16px/1.3 var(--sans);color:#082d3b}
+.resume-tags{display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;margin:0;padding:0;list-style:none}
+.resume-tags li{position:relative;padding-left:14px;color:#243b45;font:400 12px/1.45 var(--sans)}
+.resume-tags li::before{content:"";position:absolute;left:0;top:.52em;width:6px;height:6px;background:#f3b744;border-radius:50%}
 .tools{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .tools li{padding:8px 16px;border:1px solid var(--line);background:var(--panel);font:400 13px var(--mono);color:var(--cyan);letter-spacing:.06em;transition:box-shadow .25s,border-color .25s}
 .tools li:hover{border-color:var(--cyan);box-shadow:0 0 18px rgba(0,229,255,.35)}
@@ -200,7 +209,9 @@ nav{gap:14px}nav a{font-size:11px}nav a::before{display:none}
 .hero{grid-template-columns:1fr;gap:40px;padding:56px 0 72px}
 .frame{max-width:340px}
 .about{grid-template-columns:1fr;gap:16px}
+.resume-sheet{padding:38px 30px;border-width:8px}
 .resume-top{grid-template-columns:1fr;gap:20px}.resume-grid{grid-template-columns:1fr;gap:0}
+.resume-tags{grid-template-columns:repeat(2,minmax(0,1fr))}
 .reel{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.reel.wide{grid-template-columns:1fr}
 .cal-slots a{min-width:0;flex:1 1 calc(33.333% - 10px)}.cal-nav a{margin-left:0;width:100%}
 .svc li{grid-template-columns:40px 1fr;gap:6px 14px}.svc li p{grid-column:2}
@@ -211,19 +222,23 @@ section{padding:72px 0}
 header .wrap{height:auto;min-height:64px;flex-wrap:wrap;justify-content:center;gap:4px 12px;padding-top:10px;padding-bottom:10px}
 nav{width:100%;justify-content:center;flex-wrap:wrap;gap:4px 14px}nav a{padding:4px 0}
 html{scroll-padding-top:112px}
+.resume-sheet{padding:30px 20px;border-width:6px;box-shadow:inset 0 0 0 3px #f3b744,0 14px 40px rgba(0,0,0,.3)}
+.resume-name{font-size:clamp(24px,8vw,34px)}
+.resume-tags{grid-template-columns:1fr}
 }
 @media print{
 body{background:#fff!important;color:#111!important;font:11pt/1.45 var(--sans)!important}
 body::before,body::after,#fx,header,main>:not(#resume),footer{display:none!important}
 #resume{display:block!important;padding:0;border:0}
 #resume .wrap{max-width:none;padding:0}
-#resume h2{margin:0 0 18px;color:#111;font-size:24pt}
-.resume-top{display:block;padding:0 0 18px;margin:0 0 20px;background:#fff;border:0;border-bottom:1px solid #444}
-.resume-name,.resume-summary,.resume-contact,.resume-entry h3,.resume-meta,.resume-list,.resume-skills h4{color:#111!important}
+.resume-sheet{max-width:none;padding:26px;border:6px solid #082d3b;box-shadow:inset 0 0 0 3px #f3b744}
+#resume h2{margin:0;color:#082d3b;font-size:24pt}
+.resume-name{color:#082d3b}
+.resume-summary,.resume-contact,.resume-entry h3,.resume-meta,.resume-list,.resume-skills h4,.resume-tags li{color:#111!important}
 .resume-grid{grid-template-columns:1fr 1fr;gap:24px}
 .resume-entry{break-inside:avoid;border-color:#aaa}
-.resume-label{color:#333}
-.resume-tags li{padding:0;border:0;color:#111}
+.resume-label{color:#80520a}
+.resume-tags li{padding-left:14px}
 .resume-top .btn{display:none}
 }
 </style>
@@ -253,8 +268,8 @@ body::before,body::after,#fx,header,main>:not(#resume),footer{display:none!impor
 <ul class="tools"><li>Premiere Pro</li><li>CapCut</li><li>DaVinci Resolve</li><li>Blender</li><li>Lightroom</li><li>Figma</li></ul>
 </div></div></section>
 
-<section id="resume"><div class="wrap">
-<h2>Resume</h2>
+<section id="resume"><div class="wrap"><div class="resume-sheet">
+<div class="resume-banner"><span aria-hidden="true"></span><h2>Resume</h2><span aria-hidden="true"></span></div>
 <div class="resume-top">
 <div>
 <p class="resume-name">John Aldrin B. Aclo</p>
@@ -291,7 +306,7 @@ body::before,body::after,#fx,header,main>:not(#resume),footer{display:none!impor
 </div>
 </div>
 </div>
-</div></section>
+</div></div></section>
 
 <section id="services"><div class="wrap">
 <h2>What I make</h2>
