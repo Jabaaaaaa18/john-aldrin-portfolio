@@ -117,8 +117,17 @@ h2{font:700 clamp(30px,4.6vw,54px)/1.1 var(--hd);margin:0 0 40px;letter-spacing:
 .grp-h h3{font:700 22px/1.2 var(--hd);margin:0;text-transform:uppercase;letter-spacing:.04em}
 .grp-h h3 span{color:var(--pink);font:500 13px var(--mono);margin-right:12px;text-shadow:0 0 10px var(--pink)}
 .grp-h p{margin:0;color:var(--mute);font:400 13px var(--mono);letter-spacing:.06em;max-width:48ch}
+.system-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+.system-heading{font-size:clamp(22px,3vw,32px);margin:0 0 24px}
+.system-card{min-width:0;cursor:default}
+.system-card::before{content:attr(data-code);color:var(--cyan)}
+.system-card:focus-within{border-color:var(--cyan);box-shadow:0 0 40px rgba(0,229,255,.22)}
+.system-card .cert-img{display:block;aspect-ratio:1.414;background:#0a0d1a}
+.system-card .cert-img img{object-fit:contain}
+.system-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:24px}
 .reel{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:20px}
 .reel.wide{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.reel.shorts{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .reel.quad{grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr))}
 .vcard{position:relative;display:block;text-decoration:none;transform-style:preserve-3d}
 .vcard .th{position:relative;aspect-ratio:9/16;overflow:hidden;border:1px solid var(--line);background:#0a0d1a;box-shadow:0 18px 40px rgba(0,0,0,.5);transition:border-color .3s,box-shadow .3s}
@@ -291,6 +300,7 @@ h2{font:700 clamp(30px,4.6vw,54px)/1.1 var(--hd);margin:0 0 40px;letter-spacing:
 .cert{counter-increment:c;position:relative;display:block;padding:30px 28px 26px;text-decoration:none;background:var(--panel);border:1px solid var(--line);backdrop-filter:blur(6px);transition:border-color .3s,box-shadow .3s}
 .cert:hover,.cert:focus-visible{border-color:var(--cyan);box-shadow:0 0 40px rgba(0,229,255,.22)}
 .cert::before{content:"CERT.0" counter(c);position:absolute;z-index:1;top:12px;right:16px;padding:3px 8px;background:rgba(5,6,13,.85);font:400 10px var(--mono);letter-spacing:.2em;color:var(--mute)}
+.cert.system-card::before{content:attr(data-code);color:var(--cyan)}
 .cert-top{display:flex;align-items:center;gap:14px;margin:0 0 22px}
 .cert-top small{display:block;font:500 12px var(--mono);letter-spacing:.06em;color:var(--mute)}
 .cert-top small+small{color:var(--pink)}
@@ -338,7 +348,8 @@ nav{gap:14px}nav a{font-size:11px}nav a::before{display:none}
 .hero{grid-template-columns:1fr;gap:40px;padding-top:56px;padding-bottom:72px}
 .frame{max-width:340px}
 .resume-top{grid-template-columns:1fr;gap:20px}.resume-grid{grid-template-columns:1fr;gap:0}
-.reel{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.reel.wide{grid-template-columns:1fr}
+.system-cards{grid-template-columns:1fr}
+.reel{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.reel.wide{grid-template-columns:1fr}.reel.shorts{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .cal-slots a{min-width:0;flex:1 1 calc(33.333% - 10px)}.cal-nav a{margin-left:0;width:100%}
 .svc li{grid-template-columns:40px 1fr;gap:6px 14px}.svc li p{grid-column:2}
 
@@ -454,52 +465,57 @@ body::before,body::after,#fx,header,main>:not(#about),footer{display:none!import
 <div class="grp">
 <div class="grp-h"><h3><span>01</span>AI generated film</h3><p>Cinematic AI scenes, directed, cut and graded into story.</p></div>
 <div class="reel">
-<a class="vcard" data-id="1E29iHPUJZ2JelCqhqnJFXdpTsYPr0uXx" href="https://drive.google.com/file/d/1E29iHPUJZ2JelCqhqnJFXdpTsYPr0uXx/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/1E29iHPUJZ2JelCqhqnJFXdpTsYPr0uXx.jpg" alt="AI film still: a cloaked man held by armoured guards in a muddy medieval square"><span class="play"></span></div><div class="meta"><b>The Judgment</b><small>AI Film · Scene 01</small></div></a>
-<a class="vcard" data-id="10sCptu2GyO5_aEHx9BAy7-Th4E-1JpL9" href="https://drive.google.com/file/d/10sCptu2GyO5_aEHx9BAy7-Th4E-1JpL9/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/10sCptu2GyO5_aEHx9BAy7-Th4E-1JpL9.jpg" alt="AI film still: a cloaked man walking alone down a misty forest road"><span class="play"></span></div><div class="meta"><b>The Exile</b><small>AI Film · Scene 02</small></div></a>
+<a class="vcard" data-id="1E29iHPUJZ2JelCqhqnJFXdpTsYPr0uXx" href="https://drive.google.com/file/d/1E29iHPUJZ2JelCqhqnJFXdpTsYPr0uXx/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/ai-generated-film/film-the-judgment.jpg" alt="AI film still: a cloaked man held by armoured guards in a muddy medieval square"><span class="play"></span></div><div class="meta"><b>The Judgment</b><small>AI Film · Scene 01</small></div></a>
+<a class="vcard" data-id="10sCptu2GyO5_aEHx9BAy7-Th4E-1JpL9" href="https://drive.google.com/file/d/10sCptu2GyO5_aEHx9BAy7-Th4E-1JpL9/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/ai-generated-film/film-the-exile.jpg" alt="AI film still: a cloaked man walking alone down a misty forest road"><span class="play"></span></div><div class="meta"><b>The Exile</b><small>AI Film · Scene 02</small></div></a>
 </div></div>
 
 <div class="grp">
 <div class="grp-h"><h3><span>02</span>Viral short-form clips</h3><p>Vertical edits with punchy pacing and kinetic captions, built for Reels, TikTok and Shorts.</p></div>
-<div class="reel">
-<a class="vcard" data-id="1PPc6Hnhzwk_QIC3SYPjyC-wfWCSJ8uyh" href="https://drive.google.com/file/d/1PPc6Hnhzwk_QIC3SYPjyC-wfWCSJ8uyh/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/1PPc6Hnhzwk_QIC3SYPjyC-wfWCSJ8uyh.jpg" alt="Thumbnail: Acro Trick Goes Wrong… Then KSI Gets Roasted"><span class="play"></span></div><div class="meta"><b>Acro Trick Goes Wrong… Then KSI Gets Roasted</b><small>Short · Captions</small></div></a>
-<a class="vcard" data-id="1F33U5xU73FORxyNfT4RlUEmYUaaHpxDA" href="https://drive.google.com/file/d/1F33U5xU73FORxyNfT4RlUEmYUaaHpxDA/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/1F33U5xU73FORxyNfT4RlUEmYUaaHpxDA.jpg" alt="Thumbnail: Barbie Meets a Dancer"><span class="play"></span></div><div class="meta"><b>Barbie Meets a Dancer: Show Us Your Best Move!</b><small>Short · Captions</small></div></a>
-<a class="vcard" data-id="17CUDxn7TdVDgsygrJTyrBE55D2s87kRp" href="https://drive.google.com/file/d/17CUDxn7TdVDgsygrJTyrBE55D2s87kRp/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/17CUDxn7TdVDgsygrJTyrBE55D2s87kRp.jpg" alt="Thumbnail: Funny Dating Reactions"><span class="play"></span></div><div class="meta"><b>Funny Dating Reactions: She Rated My Outfit a 7.6</b><small>Short · Captions</small></div></a>
-<a class="vcard" data-id="1uJt-Aq_BFFMPwoioPIL88_2iOHdMS7ot" href="https://drive.google.com/file/d/1uJt-Aq_BFFMPwoioPIL88_2iOHdMS7ot/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/1uJt-Aq_BFFMPwoioPIL88_2iOHdMS7ot.jpg" alt="Thumbnail: IShowSpeed Learns a Portuguese Greeting"><span class="play"></span></div><div class="meta"><b>IShowSpeed Learns a Portuguese Greeting, Then Meets a Nurse</b><small>Short · Captions</small></div></a>
-<a class="vcard" data-id="10yZXpvmcu2Q-4wnfyFC5aUbicOXG6GbW" href="https://drive.google.com/file/d/10yZXpvmcu2Q-4wnfyFC5aUbicOXG6GbW/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/10yZXpvmcu2Q-4wnfyFC5aUbicOXG6GbW.jpg" alt="Thumbnail: Speed Dating Turns Awkward"><span class="play"></span></div><div class="meta"><b>Speed Dating Turns Awkward When Everyone Says No</b><small>Short · Captions</small></div></a>
-<a class="vcard" data-id="1DOzuF3vFE6k4RkUGvKCXzujH6WTU8XaR" href="https://drive.google.com/file/d/1DOzuF3vFE6k4RkUGvKCXzujH6WTU8XaR/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/1DOzuF3vFE6k4RkUGvKCXzujH6WTU8XaR.jpg" alt="Thumbnail: Welsh Pickup Line Leaves Her Speechless"><span class="play"></span></div><div class="meta"><b>Welsh Pickup Line Leaves Her Speechless 😂</b><small>Short · Captions</small></div></a>
+<div class="reel shorts">
+<a class="vcard" data-id="1PPc6Hnhzwk_QIC3SYPjyC-wfWCSJ8uyh" href="https://drive.google.com/file/d/1PPc6Hnhzwk_QIC3SYPjyC-wfWCSJ8uyh/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/viral-short-form-clips/short-acro-ksi.jpg" alt="Thumbnail: Acro Trick Goes Wrong… Then KSI Gets Roasted"><span class="play"></span></div><div class="meta"><b>Acro Trick Goes Wrong… Then KSI Gets Roasted</b><small>Short · Captions</small></div></a>
+<a class="vcard" data-id="1F33U5xU73FORxyNfT4RlUEmYUaaHpxDA" href="https://drive.google.com/file/d/1F33U5xU73FORxyNfT4RlUEmYUaaHpxDA/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/viral-short-form-clips/short-barbie-dancer.jpg" alt="Thumbnail: Barbie Meets a Dancer"><span class="play"></span></div><div class="meta"><b>Barbie Meets a Dancer: Show Us Your Best Move!</b><small>Short · Captions</small></div></a>
+<a class="vcard" data-id="17CUDxn7TdVDgsygrJTyrBE55D2s87kRp" href="https://drive.google.com/file/d/17CUDxn7TdVDgsygrJTyrBE55D2s87kRp/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/viral-short-form-clips/short-dating-reactions.jpg" alt="Thumbnail: Funny Dating Reactions"><span class="play"></span></div><div class="meta"><b>Funny Dating Reactions: She Rated My Outfit a 7.6</b><small>Short · Captions</small></div></a>
+<a class="vcard" data-id="1uJt-Aq_BFFMPwoioPIL88_2iOHdMS7ot" href="https://drive.google.com/file/d/1uJt-Aq_BFFMPwoioPIL88_2iOHdMS7ot/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/viral-short-form-clips/short-ishowspeed-greeting.jpg" alt="Thumbnail: IShowSpeed Learns a Portuguese Greeting"><span class="play"></span></div><div class="meta"><b>IShowSpeed Learns a Portuguese Greeting, Then Meets a Nurse</b><small>Short · Captions</small></div></a>
+<a class="vcard" data-id="10yZXpvmcu2Q-4wnfyFC5aUbicOXG6GbW" href="https://drive.google.com/file/d/10yZXpvmcu2Q-4wnfyFC5aUbicOXG6GbW/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/viral-short-form-clips/short-speed-dating.jpg" alt="Thumbnail: Speed Dating Turns Awkward"><span class="play"></span></div><div class="meta"><b>Speed Dating Turns Awkward When Everyone Says No</b><small>Short · Captions</small></div></a>
+<a class="vcard" data-id="1DOzuF3vFE6k4RkUGvKCXzujH6WTU8XaR" href="https://drive.google.com/file/d/1DOzuF3vFE6k4RkUGvKCXzujH6WTU8XaR/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/viral-short-form-clips/short-welsh-pickup-line.jpg" alt="Thumbnail: Welsh Pickup Line Leaves Her Speechless"><span class="play"></span></div><div class="meta"><b>Welsh Pickup Line Leaves Her Speechless 😂</b><small>Short · Captions</small></div></a>
 </div></div>
 
 <div class="grp">
 <div class="grp-h"><h3><span>03</span>Video projects</h3><p>Longer widescreen edits with moody grading and atmospheric sound.</p></div>
 <div class="reel wide">
-<a class="vcard" data-id="1dl2E-ifLaSOa7Esn2_JxC1xDLxLEDUMn" data-wide href="https://drive.google.com/file/d/1dl2E-ifLaSOa7Esn2_JxC1xDLxLEDUMn/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/1dl2E-ifLaSOa7Esn2_JxC1xDLxLEDUMn.jpg" alt="Black and white still of a winged angel statue"><span class="play"></span></div><div class="meta"><b>ABM-A</b><small>Video Project · 16:9</small></div></a>
-<a class="vcard" data-id="1ZAQDbMuLDBlXHhDRSpU9isytCfbUqs_V" data-wide href="https://drive.google.com/file/d/1ZAQDbMuLDBlXHhDRSpU9isytCfbUqs_V/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/1ZAQDbMuLDBlXHhDRSpU9isytCfbUqs_V.jpg" alt="A sliver of light through a door in darkness"><span class="play"></span></div><div class="meta"><b>Segment Video 2</b><small>Video Project · 16:9</small></div></a>
+<a class="vcard" data-id="1dl2E-ifLaSOa7Esn2_JxC1xDLxLEDUMn" data-wide href="https://drive.google.com/file/d/1dl2E-ifLaSOa7Esn2_JxC1xDLxLEDUMn/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/video-projects/project-abm-a.jpg" alt="Black and white still of a winged angel statue"><span class="play"></span></div><div class="meta"><b>ABM-A</b><small>Video Project · 16:9</small></div></a>
+<a class="vcard" data-id="1ZAQDbMuLDBlXHhDRSpU9isytCfbUqs_V" data-wide href="https://drive.google.com/file/d/1ZAQDbMuLDBlXHhDRSpU9isytCfbUqs_V/view" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/video-projects/project-segment-video-2.jpg" alt="A sliver of light through a door in darkness"><span class="play"></span></div><div class="meta"><b>Segment Video 2</b><small>Video Project · 16:9</small></div></a>
 </div></div>
 
 <div class="grp">
 <div class="grp-h"><h3><span>04</span>3D product renders</h3><p>GOOJODOQ handheld fan: modelled, textured, lit and rendered in 3D, with studio shots, a styled flat-lay and colourway concepts.</p></div>
 <div class="reel wide quad">
-<a class="vcard" data-img="assets/renders/goojodoq-hero-01.jpg" data-wide href="assets/renders/goojodoq-hero-01.jpg" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/renders/goojodoq-hero-01-sm.jpg" alt="3D render of a black GOOJODOQ handheld fan with a purple ring, floating against a deep red backdrop"><span class="play zoom"></span></div><div class="meta"><b>Studio Hero, Angle 01</b><small>3D Render · Product</small></div></a>
-<a class="vcard" data-img="assets/renders/goojodoq-hero-02.jpg" data-wide href="assets/renders/goojodoq-hero-02.jpg" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/renders/goojodoq-hero-02-sm.jpg" alt="3D render of the GOOJODOQ fan from a lower angle with a dark vignette and red glow"><span class="play zoom"></span></div><div class="meta"><b>Studio Hero, Angle 02</b><small>3D Render · Product</small></div></a>
-<a class="vcard" data-img="assets/renders/goojodoq-fur-flatlay.jpg" data-wide href="assets/renders/goojodoq-fur-flatlay.jpg" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/renders/goojodoq-fur-flatlay-sm.jpg" alt="Top-down 3D render of two GOOJODOQ fans lying on dark red fur"><span class="play zoom"></span></div><div class="meta"><b>Fur Flat-lay</b><small>3D Render · Hair Simulation</small></div></a>
-<a class="vcard" data-img="assets/renders/goojodoq-colorways.jpg" data-wide href="assets/renders/goojodoq-colorways.jpg" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/renders/goojodoq-colorways-sm.jpg" alt="Three GOOJODOQ fans in red, red-and-silver camo and orange-and-red pattern colourways"><span class="play zoom"></span></div><div class="meta"><b>Colourway Concepts</b><small>3D Render · Texturing</small></div></a>
+<a class="vcard" data-img="assets/work/3d-product-renders/goojodoq-hero-01.jpg" data-wide href="assets/work/3d-product-renders/goojodoq-hero-01.jpg" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/3d-product-renders/goojodoq-hero-01-sm.jpg" alt="3D render of a black GOOJODOQ handheld fan with a purple ring, floating against a deep red backdrop"><span class="play zoom"></span></div><div class="meta"><b>Studio Hero, Angle 01</b><small>3D Render · Product</small></div></a>
+<a class="vcard" data-img="assets/work/3d-product-renders/goojodoq-hero-02.jpg" data-wide href="assets/work/3d-product-renders/goojodoq-hero-02.jpg" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/3d-product-renders/goojodoq-hero-02-sm.jpg" alt="3D render of the GOOJODOQ fan from a lower angle with a dark vignette and red glow"><span class="play zoom"></span></div><div class="meta"><b>Studio Hero, Angle 02</b><small>3D Render · Product</small></div></a>
+<a class="vcard" data-img="assets/work/3d-product-renders/goojodoq-fur-flatlay.jpg" data-wide href="assets/work/3d-product-renders/goojodoq-fur-flatlay.jpg" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/3d-product-renders/goojodoq-fur-flatlay-sm.jpg" alt="Top-down 3D render of two GOOJODOQ fans lying on dark red fur"><span class="play zoom"></span></div><div class="meta"><b>Fur Flat-lay</b><small>3D Render · Hair Simulation</small></div></a>
+<a class="vcard" data-img="assets/work/3d-product-renders/goojodoq-colorways.jpg" data-wide href="assets/work/3d-product-renders/goojodoq-colorways.jpg" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/3d-product-renders/goojodoq-colorways-sm.jpg" alt="Three GOOJODOQ fans in red, red-and-silver camo and orange-and-red pattern colourways"><span class="play zoom"></span></div><div class="meta"><b>Colourway Concepts</b><small>3D Render · Texturing</small></div></a>
 </div></div>
 
-<div class="grp">
-<div class="grp-h"><h3><span>05</span>Inventory management system</h3><p>An Excel-based inventory dashboard with product tracking, stock alerts and automatic summaries.</p></div>
-<div class="reel wide">
-<a class="vcard" data-img="assets/work/inventory-dashboard.svg" data-wide href="assets/work/inventory-dashboard.svg" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/inventory-dashboard.svg" alt="Screenshot of the inventory management dashboard showing stock summaries, category tracking and reorder alerts"><span class="play zoom"></span></div><div class="meta"><b>Inventory Management System</b><small>Microsoft Excel · Dashboard</small></div></a>
-</div></div>
-<div class="grp">
-<div class="grp-h"><h3><span>06</span>Guided practice</h3><p>Try a short inventory exercise in a sample-only demo. Your changes stay in this page and reset when you close it.</p></div>
-<button class="btn pri" id="inventory-start" type="button">Start guided practice</button>
-</div>
-<div class="grp">
-<div class="grp-h"><h3><span>07</span>Daybook task tracker</h3><p>A local request-management prototype for capturing work, setting urgency and deadlines, tracking overdue items, and recording outcomes.</p></div>
-<div class="reel wide">
-<a class="vcard" data-img="assets/work/daybook-dashboard.png" data-wide href="assets/work/daybook-dashboard.png" target="_blank" rel="noopener"><div class="th"><img loading="lazy" src="assets/work/daybook-dashboard.png" alt="Daybook task tracker dashboard with sample requests, due dates, urgency, and an overdue alert"><span class="play zoom"></span></div><div class="meta"><b>Daybook Request Tracker</b><small>Windows App · Task Management</small></div></a>
-</div>
-<div class="btns"><button class="btn pri" id="daybook-start" type="button">Try guided practice</button><a class="btn" href="https://github.com/Jabaaaaaa18/daybook-task-tracker/releases/latest" target="_blank" rel="noopener">Download for Windows</a></div>
+<h2 class="system-heading">System I created</h2>
+<div class="system-cards">
+<article class="cert system-card tilt3d" data-code="SYS.01">
+<a class="cert-img" data-img="assets/work/inventory-dashboard.svg" data-wide href="assets/work/inventory-dashboard.svg" aria-label="View inventory management dashboard image"><img loading="lazy" src="assets/work/inventory-dashboard.svg" alt="Inventory management dashboard with stock summaries, category tracking, and reorder alerts"></a>
+<div class="cert-top"><span class="cert-seal" aria-hidden="true"></span><div><small>Microsoft Excel</small><small>Inventory Management</small></div></div>
+<p class="cert-kind">System I created · Inventory</p>
+<h3>Inventory Management System</h3>
+<p class="cert-txt">An Excel-based inventory dashboard for tracking products, spotting low stock, and reviewing automatic summaries.</p>
+<dl><div><dt>Platform</dt><dd>Microsoft Excel</dd></div><div><dt>Features</dt><dd>Product tracking · Stock alerts · Summaries</dd></div></dl>
+<div class="system-actions"><button class="btn pri" id="inventory-start" type="button">Start guided practice</button></div>
+</article>
+<article class="cert system-card tilt3d" data-code="SYS.02">
+<a class="cert-img" data-img="assets/work/daybook-dashboard.png" data-wide href="assets/work/daybook-dashboard.png" aria-label="View Daybook task tracker dashboard image"><img loading="lazy" src="assets/work/daybook-dashboard.png" alt="Daybook task tracker dashboard with sample requests, due dates, urgency, and an overdue alert"></a>
+<div class="cert-top"><span class="cert-seal" aria-hidden="true"></span><div><small>Windows App</small><small>Task Management</small></div></div>
+<p class="cert-kind">System I created · Request Tracking</p>
+<h3>Daybook Task Tracker</h3>
+<p class="cert-txt">A local request-management prototype for capturing work, setting urgency and deadlines, tracking overdue items, and recording outcomes.</p>
+<dl><div><dt>Platform</dt><dd>Windows Desktop</dd></div><div><dt>Features</dt><dd>Requests · Priorities · Deadlines · Outcomes</dd></div></dl>
+<div class="system-actions"><button class="btn pri" id="daybook-start" type="button">Try guided practice</button><a class="btn" href="https://github.com/Jabaaaaaa18/daybook-task-tracker/releases/latest" target="_blank" rel="noopener">Download for Windows</a></div>
+</article>
 </div>
 
 <dialog id="player" aria-label="Media viewer"><div class="bar"><span id="ptitle"></span><button type="button" id="pclose">Close ✕</button></div><div class="box"><iframe id="pframe" title="Video" allow="autoplay; fullscreen" allowfullscreen></iframe><img id="pimg" alt="" hidden></div></dialog>
@@ -709,8 +725,8 @@ function shut(){dl.close()}
 dl.addEventListener('close',function(){fr.src='about:blank';im.removeAttribute('src')});
 document.getElementById('pclose').addEventListener('click',shut);
 dl.addEventListener('click',function(e){if(e.target===dl)shut()});
-document.querySelectorAll('.vcard,.cert[data-img]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();
-var pic=a.dataset.img;dl.classList.toggle('tall',!a.hasAttribute('data-wide'));tt.textContent=(a.querySelector('b')||a.querySelector('h3')).textContent;
+document.querySelectorAll('.vcard,.cert[data-img],.system-card .cert-img[data-img]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();
+var pic=a.dataset.img,heading=a.querySelector('b')||a.querySelector('h3')||(a.closest('.system-card')&&a.closest('.system-card').querySelector('h3'));dl.classList.toggle('tall',!a.hasAttribute('data-wide'));tt.textContent=heading?heading.textContent:'Preview';
 fr.hidden=!!pic;im.hidden=!pic;
 if(pic){im.src=pic;im.alt=a.querySelector('img').alt}else fr.src='https://drive.google.com/file/d/'+a.dataset.id+'/preview';
 dl.showModal()})});
