@@ -438,7 +438,7 @@ body::before,body::after,#fx,header,main>:not(#about),footer{display:none!import
 <div>
 <p class="resume-label">Skills</p>
 <h4>Photo Editing</h4>
-<ul class="resume-tags"><li>Adobe Photoshop</li><li>Capture One</li><li>Adobe Lightroom</li><li>Image retouching</li><li>Color correction and grading</li><li>Background removal</li><li>Photo compositing</li><li>Cropping and optimization</li><li>Attention to detail</li></ul>
+<ul class="resume-tags"><li>Adobe Photoshop</li><li>Capture One</li><li>Adobe Lightroom</li><li>Microsoft Excel</li><li>Microsoft Word</li><li>Microsoft PowerPoint</li><li>Canva</li><li>Image retouching</li><li>Color correction and grading</li><li>Background removal</li><li>Photo compositing</li><li>Cropping and optimization</li><li>Attention to detail</li></ul>
 </div>
 <div>
 <h4>Video Editing</h4>
@@ -948,7 +948,7 @@ var lc=function(s){return s.toLowerCase().replace(/\bai\b/g,'AI').replace(/\b3d\
 tabs.forEach(function(b){var n=b.querySelector('[data-n]');if(n)n.textContent=String($$(n.dataset.n).length).padStart(2,'0')});
 var reels=$$('.grp-h h3').map(function(h){return h.lastChild.textContent.trim()}),
 svc=$$('.svc h3').map(function(h){return h.textContent.split(' and ')[0]}),
-tools=$$('.resume-tags li').map(function(l){return l.textContent}).filter(function(t){return /Adobe|CapCut|Capture One/.test(t)}).map(function(t){return t.replace('Adobe ','')});
+tools=$$('.resume-tags li').map(function(l){return l.textContent}).filter(function(t){return /Adobe|CapCut|Capture One|Microsoft|Canva/.test(t)}).map(function(t){return t.replace('Adobe ','')});
 var D={
 profile:['Multimedia creator with a BSIT in Animation and Motion Graphics, editing video, motion, photo and sound for brands and artists.','#about','Read profile'],
 work:[$$('.vcard').length+' pieces across '+reels.length+' reels: '+lc(list(reels))+'.','#work','View work'],
