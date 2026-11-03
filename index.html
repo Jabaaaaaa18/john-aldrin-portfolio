@@ -88,8 +88,8 @@ h2{font:700 clamp(30px,4.6vw,54px)/1.1 var(--hd);margin:0 0 40px;letter-spacing:
 .resume-summary{max-width:70ch;margin:0 0 18px;color:#c4d0e6}
 .resume-contact{display:flex;flex-wrap:wrap;gap:8px 20px;color:var(--mute);font:400 12px var(--mono)}
 .resume-contact a{color:var(--cyan);text-decoration:none}
-.resume-top button.btn{justify-self:start;appearance:none;background:rgba(5,6,13,.85);cursor:pointer}
-.resume-top button.btn:hover{background:rgba(0,229,255,.12)}
+.resume-top>a.btn{justify-self:start;background:rgba(5,6,13,.85)}
+.resume-top>a.btn:hover{background:rgba(0,229,255,.12)}
 .resume-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px}
 .resume-entry{margin:0 0 36px;padding:0 0 30px;border-bottom:1px solid var(--line)}
 .resume-entry:last-child{margin-bottom:0}
@@ -379,7 +379,7 @@ body::before,body::after,#fx,header,main>:not(#about),footer{display:none!import
 .resume-entry{break-inside:avoid;border-color:#aaa}
 .resume-label{color:#333}
 .resume-tags li{padding:0;border:0;color:#111}
-.resume-top .btn{display:none}
+.resume-top>a.btn{display:none}
 }
 </style>
 </head>
@@ -416,7 +416,7 @@ body::before,body::after,#fx,header,main>:not(#about),footer{display:none!import
 <p class="resume-summary">BS Information Technology graduate majoring in Animation and Motion Graphics, with strong photo and video editing skills. Proficient in Photoshop, Lightroom, Premiere Pro, and CapCut, with a detail-focused approach to visual storytelling.</p>
 <div class="resume-contact"><span>Infanta, Quezon</span><a href="tel:+639459731503">0945-9731-503</a><a href="mailto:jeikziaw@gmail.com">jeikziaw@gmail.com</a><a href="mailto:johnaldrin.aclo@lspu.edu.ph">johnaldrin.aclo@lspu.edu.ph</a></div>
 </div>
-<button class="btn" type="button" onclick="window.print()">Print Resume</button>
+<a class="btn" href="assets/John_Aldrin_Aclo_Resume.pdf" target="_blank" rel="noopener">View / Print Resume</a>
 </div>
 <div class="resume-grid">
 <div>
