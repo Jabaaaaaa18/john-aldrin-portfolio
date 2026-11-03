@@ -191,6 +191,70 @@ h2{font:700 clamp(30px,4.6vw,54px)/1.1 var(--hd);margin:0 0 40px;letter-spacing:
 .inv-message.error{color:#ff879b!important}
 .inv-note{margin:10px 0 0;color:var(--mute);font:400 10px/1.5 var(--mono)}
 @media(max-width:700px){.inv-layout{grid-template-columns:1fr;padding:12px}.inv-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.inv-guide{padding:14px}.inv-top{padding:12px 14px}}
+#daybook-demo{width:min(96vw,1180px);max-height:94vh;overflow:auto;padding:0;border:1px solid var(--cyan);background:#080b14;color:var(--text);box-shadow:0 0 80px rgba(0,229,255,.28)}
+#daybook-demo::backdrop{background:rgba(3,4,10,.86);backdrop-filter:blur(8px)}
+.db-top{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 20px;background:#080b14;border-bottom:1px solid var(--line)}
+.db-top b{display:block;font:700 14px var(--hd);letter-spacing:.08em}
+.db-top small{display:block;margin-top:4px;color:var(--mute);font:400 10px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.db-top button,.db-actions button,.db-filters select,.db-form button,.db-form select,.db-form input,.db-form textarea,.db-role select{font:400 12px var(--sans)}
+.db-top button,.db-actions button,.db-form button{appearance:none;cursor:pointer;border:1px solid var(--line);background:rgba(0,229,255,.04);color:var(--cyan);font:500 11px var(--mono);letter-spacing:.06em;padding:9px 12px}
+.db-top button:hover,.db-actions button:hover,.db-form button:hover{border-color:var(--cyan);background:rgba(0,229,255,.1)}
+.db-layout{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,2fr);gap:18px;padding:18px}
+.db-guide,.db-workspace{min-width:0;border:1px solid var(--line);background:rgba(14,18,34,.72)}
+.db-guide{padding:18px}
+.db-kicker{margin:0 0 8px;color:var(--cyan);font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase}
+.db-guide h3,.db-section-title{margin:0 0 10px;font:700 17px var(--hd)}
+.db-guide>p:not(.db-kicker){margin:0 0 16px;color:#c4d0e6;font-size:13px}
+.db-steps{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.db-steps li{padding:10px 11px;border:1px solid rgba(0,229,255,.12);color:var(--mute);font:400 11px/1.5 var(--mono)}
+.db-steps li[aria-current="step"]{border-color:var(--cyan);color:var(--text);background:rgba(0,229,255,.07)}
+.db-steps li.done{color:#3dffa8;border-color:rgba(61,255,168,.3)}
+.db-steps b{display:block;margin-bottom:3px;color:inherit}
+.db-progress{height:3px;margin:14px 0;background:rgba(0,229,255,.12)}
+.db-progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan),var(--pink));transition:width .25s}
+.db-guide .db-reset{width:100%;margin-top:14px}
+.db-note{margin:12px 0 0;color:var(--mute);font:400 10px/1.5 var(--mono)}
+.db-workspace{padding:16px}
+.db-role{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;color:var(--mute);font:500 10px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.db-role select,.db-filters select,.db-form select,.db-form input,.db-form textarea{width:100%;min-height:38px;padding:8px 9px;border:1px solid rgba(0,229,255,.28);border-radius:0;background:#080b14;color:var(--text)}
+.db-role select{max-width:210px}
+.db-role select:focus,.db-filters select:focus,.db-form select:focus,.db-form input:focus,.db-form textarea:focus{outline:2px solid var(--cyan);outline-offset:1px}
+.db-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:14px}
+.db-stat{padding:10px;border:1px solid var(--line);background:rgba(5,6,13,.48)}
+.db-stat small{display:block;color:var(--mute);font:400 9px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.db-stat b{display:block;margin-top:4px;color:var(--cyan);font:700 18px var(--hd)}
+.db-stat.overdue b{color:#ff879b}
+.db-content{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr);gap:14px}
+.db-list-panel,.db-edit-panel{min-width:0}
+.db-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:0 0 12px}
+.db-filters label,.db-form label{display:grid;gap:5px;color:var(--mute);font:500 9px var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.db-cards{display:grid;gap:8px;max-height:440px;overflow:auto}
+.db-card{padding:11px;border:1px solid rgba(0,229,255,.15);background:rgba(5,6,13,.42)}
+.db-card h4{margin:0;color:var(--text);font:600 13px/1.4 var(--sans)}
+.db-card-top{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.db-ref{flex:none;color:var(--mute);font:400 9px var(--mono)}
+.db-meta{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0;color:var(--mute);font:400 9px var(--mono)}
+.db-chip{padding:3px 6px;border:1px solid rgba(0,229,255,.18)}
+.db-chip.urgent,.db-chip.overdue{border-color:rgba(255,43,214,.55);color:#ff9dea}
+.db-chip.complete{border-color:rgba(61,255,168,.3);color:#3dffa8}
+.db-card p{margin:5px 0;color:var(--mute);font-size:11px}
+.db-actions{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.db-actions small{color:var(--mute);font:400 9px var(--mono)}
+.db-actions button{padding:6px 9px}
+.db-empty{padding:18px;border:1px dashed var(--line);color:var(--mute);font-size:12px;text-align:center}
+.db-edit-panel{padding:12px;border:1px solid rgba(0,229,255,.14);background:rgba(5,6,13,.35)}
+.db-edit-heading{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.db-edit-heading h3{margin:0;font:700 13px var(--hd)}
+.db-edit-heading button{appearance:none;border:0;background:none;color:var(--cyan);cursor:pointer;font:500 10px var(--mono)}
+.db-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.db-form label.wide,.db-form .db-submit{grid-column:1/-1}
+.db-form textarea{min-height:68px;resize:vertical}
+.db-form .db-submit{justify-self:start}
+.db-message{min-height:1.4em;margin:8px 0 0;color:var(--cyan);font:400 10px var(--mono)}
+.db-message.error{color:#ff879b}
+@media(max-width:900px){.db-content{grid-template-columns:1fr}.db-cards{max-height:300px}}
+@media(max-width:700px){.db-layout{grid-template-columns:1fr;padding:12px}.db-guide{padding:14px}.db-top{padding:12px 14px}}
+@media(max-width:430px){.db-filters,.db-form{grid-template-columns:1fr}.db-form label.wide,.db-form .db-submit{grid-column:auto}.db-stats{grid-template-columns:1fr 1fr}.db-role{align-items:flex-start;flex-direction:column}.db-role select{max-width:none}}
 .note{margin-top:20px;font:400 12px var(--mono);color:var(--mute)}
 .cta{text-align:center;padding:128px 0;background:radial-gradient(40rem 20rem at 50% 60%,rgba(124,77,255,.28),transparent 70%)}
 .cta h2{font-size:clamp(34px,6vw,76px);max-width:16ch;margin:0 auto 24px;text-shadow:0 0 30px rgba(124,77,255,.6)}
@@ -430,6 +494,10 @@ body::before,body::after,#fx,header,main>:not(#about),footer{display:none!import
 <div class="grp-h"><h3><span>06</span>Guided practice</h3><p>Try a short inventory exercise in a sample-only demo. Your changes stay in this page and reset when you close it.</p></div>
 <button class="btn pri" id="inventory-start" type="button">Start guided practice</button>
 </div>
+<div class="grp">
+<div class="grp-h"><h3><span>07</span>Daybook task tracker</h3><p>A local request-management prototype for capturing work, setting urgency and deadlines, tracking overdue items, and recording outcomes.</p></div>
+<div class="btns"><button class="btn pri" id="daybook-start" type="button">Try guided practice</button><a class="btn" href="https://github.com/Jabaaaaaa18/daybook-task-tracker/releases/latest" target="_blank" rel="noopener">Download for Windows</a></div>
+</div>
 
 <dialog id="player" aria-label="Media viewer"><div class="bar"><span id="ptitle"></span><button type="button" id="pclose">Close ✕</button></div><div class="box"><iframe id="pframe" title="Video" allow="autoplay; fullscreen" allowfullscreen></iframe><img id="pimg" alt="" hidden></div></dialog>
 <dialog id="inventory-demo" aria-labelledby="inv-title">
@@ -483,6 +551,59 @@ body::before,body::after,#fx,header,main>:not(#about),footer{display:none!import
 <h3>Recent movements</h3><div class="inv-table-wrap" id="inv-transactions-table"></div>
 </section>
 </div></div>
+</dialog>
+<dialog id="daybook-demo" aria-labelledby="db-title">
+<div class="db-top"><div><b id="db-title">Daybook Request Tracker</b><small>Interactive practice · Sample requests only · Changes reset when closed</small></div><button id="db-close" type="button" aria-label="Close Daybook practice">Close ✕</button></div>
+<div class="db-layout">
+<aside class="db-guide" aria-label="Daybook practice instructions">
+<p class="db-kicker">Your mission</p><h3>Bring a request to resolution</h3>
+<p>Practice capturing a request, prioritizing it, and documenting its outcome.</p>
+<ol class="db-steps" id="db-steps">
+<li aria-current="step"><b>01 · Capture a request</b>Create a request with an issue type, urgency, and response date.</li>
+<li><b>02 · Track the work</b>Open a request and move it to In Progress.</li>
+<li><b>03 · Record the outcome</b>Resolve a request and add solution notes.</li>
+</ol>
+<div class="db-progress" role="progressbar" aria-label="Daybook practice progress" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><i id="db-progress"></i></div>
+<button class="db-reset" id="db-reset" type="button">Restart practice</button>
+<p class="db-note">This practice is a simplified UI demo. Sample data stays in this page tab and is not saved or sent anywhere. Role views are illustrative—not authentication or access control. Do not enter confidential information.</p>
+</aside>
+<div class="db-workspace">
+<label class="db-role">Demo workspace<select id="db-role" aria-label="Choose a Daybook demo workspace"><option value="employee">Employee · John Aldrin</option><option value="supervisor">Supervisor · Morgan Lee</option><option value="hr">HR · Taylor Kim</option><option value="admin">Admin · Casey Chen</option></select></label>
+<div class="db-stats" aria-label="Request summary">
+<div class="db-stat"><small>Requests</small><b id="db-total">0</b></div><div class="db-stat"><small>Open</small><b id="db-open">0</b></div><div class="db-stat overdue"><small>Overdue</small><b id="db-overdue">0</b></div>
+</div>
+<div class="db-content">
+<section class="db-list-panel" aria-label="Request list">
+<h3 class="db-section-title">Requests</h3>
+<div class="db-filters">
+<label>Status<select id="db-filter-status"><option value="">All statuses</option><option>New</option><option>In Progress</option><option>Waiting</option><option>Resolved</option><option>Closed</option><option value="overdue">Overdue</option></select></label>
+<label>Issue type<select id="db-filter-category"><option value="">All types</option><option>Question</option><option>Incident</option><option>Request</option><option>Other</option></select></label>
+<label>Urgency<select id="db-filter-urgency"><option value="">All urgencies</option><option>Urgent</option><option>High</option><option>Normal</option><option>Low</option></select></label>
+<label>Sort by<select id="db-sort"><option value="deadline">Response date</option><option value="urgency">Urgency</option></select></label>
+</div>
+<div class="db-cards" id="db-cards" aria-live="polite"></div>
+<p class="db-message" id="db-list-message" role="status" aria-live="polite"></p>
+</section>
+<section class="db-edit-panel" aria-label="Request editor">
+<div class="db-edit-heading"><h3 id="db-form-title">New request</h3><button type="button" id="db-new">+ New</button></div>
+<form class="db-form" id="db-form">
+<input type="hidden" name="id">
+<label class="wide">Request description<input name="description" required maxlength="240" placeholder="What needs to be done?"></label>
+<label>Requester<input name="requester" maxlength="80" placeholder="Name or source (optional)"></label>
+<label>Assignee<select name="assignee"><option>John Aldrin</option><option>Avery Patel</option><option>Sam Rivera</option><option>Morgan Lee</option><option>Taylor Kim</option><option>Casey Chen</option></select></label>
+<label>Work area<select name="workArea"><option>Operations</option><option>IT</option><option>Finance</option><option>HR</option></select></label>
+<label>Issue type<select name="category"><option>Question</option><option>Incident</option><option>Request</option><option>Other</option></select></label>
+<label>Urgency<select name="urgency"><option>Normal</option><option>Low</option><option>High</option><option>Urgent</option></select></label>
+<label>Response deadline<input name="deadline" type="date"></label>
+<label>Status<select name="status"><option>New</option><option>In Progress</option><option>Waiting</option><option>Resolved</option><option>Closed</option></select></label>
+<label class="wide">Solution notes<textarea name="notes" maxlength="500" placeholder="What did you do, or what is the outcome?"></textarea></label>
+<button class="db-submit" type="submit">Save request</button>
+</form>
+<p class="db-message" id="db-form-message" role="status" aria-live="polite"></p>
+</section>
+</div>
+</div>
+</div>
 </dialog>
 </div></section>
 
@@ -646,6 +767,124 @@ if(type==='out'&&p.name.toLowerCase()==='usb-c cable'&&quantity===3&&completed[0
 if(type==='out'&&p.name.toLowerCase()==='wireless mouse'&&quantity===7&&completed[1])reorderMovement=true;
 moveForm.reset();setMessage(moveMessage,'Movement saved. '+p.name+' now has '+p.stock+' unit'+(p.stock===1?'':'s')+'.');draw()});
 reset();
+})();
+</script>
+<script>
+(function(){
+var dialog=document.getElementById('daybook-demo'),start=document.getElementById('daybook-start');
+if(!dialog||!start||!dialog.showModal)return;
+var form=document.getElementById('db-form'),cards=document.getElementById('db-cards'),roleSelect=document.getElementById('db-role');
+var roleInfo={
+employee:{name:'John Aldrin',allowed:['John Aldrin']},
+supervisor:{name:'Morgan Lee',allowed:['Morgan Lee','Avery Patel','Sam Rivera']},
+hr:{name:'Taylor Kim',allowed:['John Aldrin','Avery Patel','Sam Rivera','Morgan Lee','Taylor Kim','Casey Chen']},
+admin:{name:'Casey Chen',allowed:['John Aldrin','Avery Patel','Sam Rivera','Morgan Lee','Taylor Kim','Casey Chen']}
+};
+var urgencyOrder={Urgent:0,High:1,Normal:2,Low:3},tasks=[],nextRef=1005,createdInSession=false,progressed={},resolved={};
+var formMessage=document.getElementById('db-form-message'),listMessage=document.getElementById('db-list-message');
+function dateOffset(offset){var date=new Date();date.setDate(date.getDate()+offset);return date.getFullYear()+'-'+String(date.getMonth()+1).padStart(2,'0')+'-'+String(date.getDate()).padStart(2,'0')}
+function today(){return dateOffset(0)}
+function overdue(task){return !!task.deadline&&task.deadline<today()&&task.status!=='Resolved'&&task.status!=='Closed'}
+function completed(task){return task.status==='Resolved'||task.status==='Closed'}
+function byId(id){return tasks.find(function(task){return task.id===id})}
+function make(tag,text,className){var node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node}
+function showMessage(node,text,isError){node.textContent=text;node.classList.toggle('error',!!isError)}
+function activeRole(){return roleInfo[roleSelect.value]||roleInfo.employee}
+function visibleTasks(){
+var role=roleSelect.value;
+return tasks.filter(function(task){
+if(role==='employee')return task.assignee==='John Aldrin';
+if(role==='supervisor')return ['Morgan Lee','Avery Patel','Sam Rivera'].indexOf(task.assignee)>=0;
+if(role==='hr')return task.workArea==='HR';
+return true
+})
+}
+function updateAssignees(preferred){
+var select=form.elements.assignee,allowed=activeRole().allowed;
+select.textContent='';
+allowed.forEach(function(name){var option=make('option',name);option.value=name;select.appendChild(option)});
+select.value=allowed.indexOf(preferred)>=0?preferred:activeRole().name
+}
+function updateProgress(){
+var steps=document.getElementById('db-steps'),hasProgress=Object.keys(progressed).some(function(id){return progressed[id]}),hasResolution=Object.keys(resolved).some(function(id){return resolved[id]});
+var done=[createdInSession,hasProgress,hasResolution],count=done.filter(Boolean).length;
+steps.querySelectorAll('li').forEach(function(item,index){item.classList.toggle('done',done[index]);item.setAttribute('aria-current',!done[index]&&done.slice(0,index).every(Boolean)?'step':'false')});
+document.querySelector('.db-progress').setAttribute('aria-valuenow',String(count));
+document.getElementById('db-progress').style.width=(count/3*100)+'%'
+}
+function render(){
+var role=roleSelect.value,items=visibleTasks(),open=items.filter(function(task){return !completed(task)}).length,late=items.filter(overdue).length;
+document.getElementById('db-total').textContent=String(items.length);
+document.getElementById('db-open').textContent=String(open);
+document.getElementById('db-overdue').textContent=String(late);
+var status=document.getElementById('db-filter-status').value,category=document.getElementById('db-filter-category').value,urgency=document.getElementById('db-filter-urgency').value,sort=document.getElementById('db-sort').value;
+items=items.filter(function(task){return(!status||(status==='overdue'?overdue(task):task.status===status))&&(!category||task.category===category)&&(!urgency||task.urgency===urgency)});
+items.sort(function(a,b){
+if(sort==='urgency')return (urgencyOrder[a.urgency]===undefined?4:urgencyOrder[a.urgency])-(urgencyOrder[b.urgency]===undefined?4:urgencyOrder[b.urgency])||(a.deadline||'9999').localeCompare(b.deadline||'9999');
+return (a.deadline||'9999').localeCompare(b.deadline||'9999')||(urgencyOrder[a.urgency]===undefined?4:urgencyOrder[a.urgency])-(urgencyOrder[b.urgency]===undefined?4:urgencyOrder[b.urgency])
+});
+cards.textContent='';
+if(!items.length){cards.appendChild(make('p','No requests match this view. Try another filter or workspace.','db-empty'))}
+items.forEach(function(task){
+var card=make('article',undefined,'db-card'),top=make('div',undefined,'db-card-top'),heading=make('h4',task.description),reference=make('span',task.reference,'db-ref'),meta=make('div',undefined,'db-meta');
+top.appendChild(heading);top.appendChild(reference);card.appendChild(top);
+[[task.category,''],[task.urgency,task.urgency==='Urgent'||task.urgency==='High'?'urgent':''],[task.status,completed(task)?'complete':''],[overdue(task)?'Overdue':task.deadline?'Due '+new Intl.DateTimeFormat(undefined,{month:'short',day:'numeric'}).format(new Date(task.deadline+'T12:00:00')):'No deadline',overdue(task)?'overdue':'']].forEach(function(pair){meta.appendChild(make('span',pair[0],'db-chip '+pair[1]))});
+card.appendChild(meta);card.appendChild(make('p',task.assignee+' · '+task.workArea+(task.requester?' · from '+task.requester:'')));
+if(task.notes)card.appendChild(make('p','Solution: '+task.notes));
+var actions=make('div',undefined,'db-actions');actions.appendChild(make('small',task.deadline?'Response by '+task.deadline:'Response date not set'));
+var edit=make('button','Edit request');edit.type='button';edit.dataset.edit=task.id;actions.appendChild(edit);card.appendChild(actions);cards.appendChild(card)
+});
+showMessage(listMessage,role==='employee'?'Showing requests assigned to John Aldrin.':role==='supervisor'?'Showing requests assigned to Morgan Lee and the demo team.':role==='hr'?'Showing requests in the HR work area.':'Showing all sample requests.',false);
+updateProgress()
+}
+function clearForm(){
+form.reset();form.elements.id.value='';form.elements.status.value='New';form.elements.category.value='Question';form.elements.urgency.value='Normal';
+form.elements.workArea.value=roleSelect.value==='hr'?'HR':'Operations';updateAssignees(activeRole().name);
+document.getElementById('db-form-title').textContent='New request';form.querySelector('.db-submit').textContent='Save request';showMessage(formMessage,'',false)
+}
+function editTask(task){
+clearForm();
+form.elements.id.value=task.id;form.elements.description.value=task.description;form.elements.requester.value=task.requester||'';
+form.elements.workArea.value=task.workArea;form.elements.category.value=task.category;form.elements.urgency.value=task.urgency;
+form.elements.deadline.value=task.deadline||'';form.elements.status.value=task.status;form.elements.notes.value=task.notes||'';
+updateAssignees(task.assignee);document.getElementById('db-form-title').textContent='Edit '+task.reference;form.querySelector('.db-submit').textContent='Update request'
+}
+function resetPractice(){
+tasks=[
+{id:'sample-1',reference:'DB-1001',description:'Laptop will not connect to the office Wi-Fi',requester:'Morgan Lee',assignee:'John Aldrin',workArea:'IT',category:'Incident',urgency:'Urgent',status:'New',deadline:dateOffset(-1),notes:''},
+{id:'sample-2',reference:'DB-1002',description:'Prepare the quarterly supply order',requester:'Morgan Lee',assignee:'Avery Patel',workArea:'Operations',category:'Request',urgency:'Normal',status:'In Progress',deadline:dateOffset(2),notes:''},
+{id:'sample-3',reference:'DB-1003',description:'Clarify the updated leave request process',requester:'Sam Rivera',assignee:'Taylor Kim',workArea:'HR',category:'Question',urgency:'High',status:'Waiting',deadline:dateOffset(0),notes:''},
+{id:'sample-4',reference:'DB-1004',description:'Update the shared team contact sheet',requester:'Self',assignee:'John Aldrin',workArea:'Finance',category:'Request',urgency:'Low',status:'Resolved',deadline:dateOffset(-3),notes:'Corrected the extension numbers and confirmed the update with the team.'}
+];
+nextRef=1005;createdInSession=false;progressed={};resolved={};
+['db-filter-status','db-filter-category','db-filter-urgency'].forEach(function(id){document.getElementById(id).value=''});
+document.getElementById('db-sort').value='deadline';roleSelect.value='employee';clearForm();render()
+}
+document.getElementById('db-close').addEventListener('click',function(){dialog.close()});
+document.getElementById('db-reset').addEventListener('click',resetPractice);
+document.getElementById('db-new').addEventListener('click',clearForm);
+start.addEventListener('click',function(){resetPractice();dialog.showModal()});
+dialog.addEventListener('close',resetPractice);
+roleSelect.addEventListener('change',function(){clearForm();render()});
+['db-filter-status','db-filter-category','db-filter-urgency','db-sort'].forEach(function(id){document.getElementById(id).addEventListener('change',render)});
+cards.addEventListener('click',function(event){var button=event.target.closest('button[data-edit]');if(!button)return;var task=byId(button.dataset.edit);if(task)editTask(task)});
+form.addEventListener('submit',function(event){
+event.preventDefault();if(!form.reportValidity())return;
+var fields=form.elements,description=fields.description.value.trim();
+if(!description){showMessage(formMessage,'Enter a request description before saving.',true);fields.description.focus();return}
+var id=fields.id.value,existing=id?byId(id):null;
+if(id&&!existing){showMessage(formMessage,'This sample request is no longer available. Start a new request.',true);return}
+var task=existing||{id:'practice-'+nextRef,reference:'DB-'+String(nextRef++),createdAt:today(),notes:''};
+task.description=description;task.requester=fields.requester.value.trim();task.assignee=fields.assignee.value;task.workArea=fields.workArea.value;
+task.category=fields.category.value;task.urgency=fields.urgency.value;task.deadline=fields.deadline.value;task.status=fields.status.value;task.notes=fields.notes.value.trim();
+if(!existing){tasks.unshift(task);createdInSession=true}
+else if(task.status==='In Progress')progressed[id]=true;
+if(existing&&completed(task)&&task.notes)resolved[id]=true;
+showMessage(formMessage,existing?'Request updated.':'Request captured as '+task.reference+'.',false);
+document.getElementById('db-filter-status').value='';document.getElementById('db-filter-category').value='';document.getElementById('db-filter-urgency').value='';
+render()
+});
+resetPractice()
 })();
 </script>
 <script>
